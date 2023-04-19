@@ -4,12 +4,14 @@ let submit = document.getElementById("s")
 
 let dataTable = document.getElementById("data")
 let insightTable = document.getElementById("insight")
+let header = document.getElementById("header")
 submit.addEventListener("click",submitting)
 
 
 
 function submitting()
 {
+
     var currentTime = new Date()
     var timing= currentTime.getDate() + "/" + (currentTime.getMonth()+1) + "/" + currentTime.getFullYear()// + currentTime.toTimeString().slice(0,5) 
     //defining variables
@@ -74,7 +76,6 @@ function submitting()
 
 function updateData()
 {
-
     //assigning variables to zero for the second tables
     let totalInvest=0;totalReturn=0;avgProfit=0;totalProfit=0;
     //defining variables by their class names
@@ -132,10 +133,11 @@ function deleteDb()
 
 function loadData()
 {
-    let table = document.getElementById("data")
-    table.innerHTML = ""   
+
     dataTable.style.display = "block";
     insightTable.style.display ="block";
+    dataTable.innerHTML = ""
+    
     insightTable.style.margin = "auto auto";
     dataTable.style.margin = "auto auto";
     dataTable.style.width ="280px"
@@ -184,8 +186,6 @@ document.getElementById("load").disabled = true
 function loadGraph()
  {
 
-    let table = document.getElementById("data")
-    table.innerHTML = ""
     document.getElementById("first").style.display="block"
     document.getElementById("second").style.display="block"
     var values=[];
@@ -195,8 +195,9 @@ function loadGraph()
     var labels=[]
     var dataInvest = []
     var dataProfit = []
-    document.getElementById("data").style.display="none"
-    document.getElementById("insight").style.display="none"
+    dataTable.style.display="none"
+    insightTable.style.display="none"
+    Headers.style.display = "none"
 
     db.collection("invest").get().then(
         invest=>

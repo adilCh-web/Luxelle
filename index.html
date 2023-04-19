@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risto App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+    <!--<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+    
+</head>
+<body>
+
+    <div id="container">
+        <nav id="navHeading">
+            <ul>
+                <button onclick = "deleteDb();location.reload()">Effacer Data</button>
+                    
+                <button id="load" onclick="loadData()">Montrer Data</button>
+                <button onclick="loadGraph()">Graphe</button>   
+            </ul>
+        </nav>
+
+        <caption>
+            <img src="./logo-removebg-preview.png" alt="logo">
+            <figcaption>
+                <h2>.....<span>Luxelle</span>Data</h2>
+                <p class="dev">Developed By AdilChorfi</p>
+            </figcaption>
+        </caption>
+
+        <div class="form">
+
+            <hr>
+            <div class="flex">
+                <div>
+                    <label><input type="number" id="invest" required> Investissement</label>
+                </div>
+                <div>
+                    <label><input type="number" id="return" required> Revenue</label>
+                </div>
+            </div>
+            <hr>
+            <div>
+                    <button id="s">Enregistrer</button>
+            </div>
+        </div>
+
+        <table id="data">
+            <tr>
+                <th>Date </th>
+                <th>Achats</th>
+                <th>Ventes</th>
+                <th>Profit</th>    
+            </tr>
+        </table>
+        <table id="insight">
+            <tr>
+                <th>Total capital</th>
+                <th>Total Revenue</th>
+                <th>Total Profit</th>
+                <th>Moyenne Profit/Piece</th>
+            </tr>
+            <tr>
+                <td id = "tInvest">£0</td>
+                <td id="tReturn">£0</td>
+                <td id="totalProfit">£0</td>
+                <td id ="avgProfit">0%</td>
+            </tr>
+        </table>
+        <canvas id="first" >
+        </canvas>
+        <canvas id="second" >
+        </canvas>
+    </div>
+
+</div>  
+
+</body>
+<script src="javas.js"></script>
+
+</html>

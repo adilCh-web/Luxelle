@@ -1,5 +1,5 @@
-
-let db = new Localbase("db")
+// LocalBase is not defined => giving an error in console
+let db = new Localbase("db");
 let submit = document.getElementById("s")
 
 let dataTable = document.getElementById("data")
@@ -195,9 +195,7 @@ function loadGraph()
     var labels=[]
     var dataInvest = []
     var dataProfit = []
-    dataTable.style.display="none"
-    insightTable.style.display="none"
-    Headers.style.display = "none"
+    document.getElementById("tables").style.display="none"
 
     db.collection("invest").get().then(
         invest=>

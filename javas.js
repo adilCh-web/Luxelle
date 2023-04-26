@@ -61,15 +61,24 @@ function submitting()
             }
         )
     
-    
-        //deleting the values after displaying/storing them
-        document.getElementById("invest").value = ""
-        document.getElementById("return").value = ""
+
     
         updateData()
     }
 
-    
+    else{
+        
+        document.getElementById("info").innerHTML = "Some of the Data are messing !!"
+        setTimeout(() => {
+            document.getElementById("info").innerHTML="";
+
+        }, 1000);
+    }
+
+        
+    //deleting the values after displaying/storing them or after a wrong input
+    document.getElementById("invest").value = ""
+    document.getElementById("return").value = ""
 
 }
 
@@ -134,10 +143,9 @@ function deleteDb()
 function loadData()
 {
 
-    dataTable.style.display = "block";
-    insightTable.style.display ="block";
+    document.getElementById("tables").style.display="block"
     dataTable.innerHTML = ""
-    
+    console.log("loaded")
     insightTable.style.margin = "auto auto";
     dataTable.style.margin = "auto auto";
     dataTable.style.width ="280px"

@@ -1,22 +1,34 @@
-// LocalBase is not defined => giving an error in console
 let db = new Localbase("db");
 let submit = document.getElementById("s")
 
 let dataTable = document.getElementById("data")
 let insightTable = document.getElementById("insight")
-let header = document.getElementById("header")
 submit.addEventListener("click",submitting)
 
+console.log(db.collection("invest"))
 
+db.collection("invest").get().then(
+    invest=>
+    {if(invest.length === 0 ){
+        document.getElementById("info").innerHTML = "There is No Data Recorded"
+    }
+    else{
+        
+        loadData()
+        document.getElementById("info").innerHTML = ""
+    }
+}) 
+
+//loadData()*/
 
 function submitting()
 {
-
     var currentTime = new Date()
-    var timing= currentTime.getDate() + "/" + (currentTime.getMonth()+1) + "/" + currentTime.getFullYear()// + currentTime.toTimeString().slice(0,5) 
+    var timing= currentTime.getDate() + "/" + (currentTime.getMonth()+1) + "/" + currentTime.getFullYear() // currentTime.toTimeString().slice(0,5) 
+
     //defining variables
     let returnmoney = document.getElementById("return").value
-    let invest = document.getElementById("invest").value
+    let invest = document.getElementById("invest").value;
     let profitPercentage = 100*(returnmoney -invest)/invest
 
     // when the invest and revenue fields are filled in
@@ -148,8 +160,7 @@ function loadData()
     console.log("loaded")
     insightTable.style.margin = "auto auto";
     dataTable.style.margin = "auto auto";
-    dataTable.style.width ="280px"
-    insightTable.style.width ="280px"
+
 
     document.getElementById("first").style.display="none"
     document.getElementById("second").style.display="none"

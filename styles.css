@@ -15,7 +15,7 @@
 
 img
 {
-    width:80%;
+    width:50%;
     display:block;
     margin:20px auto 0px auto;
 
@@ -24,7 +24,7 @@ img
 
 #container
 {
-    width:50%;
+    width:80%;
     min-width:300px;
     margin:0px auto;
     padding:5px;
@@ -41,7 +41,7 @@ body
 }
 input
 {
-    font-size: 25px;
+    font-size: 20px;
     width:100px;
     color:brown;
     font-weight: 700;
@@ -55,13 +55,14 @@ table th, table td
 {
     padding:5px 0px;
     border-bottom: 1px solid ;
-    width:85px;
+    width:150px; /*giving it a bigger size to make all the cells igual (insight and data table) */
     text-align:center
 }
 table
 {
     margin: auto auto;
     border:2px solid brown;
+    width:80%;
 
 }
 
@@ -73,7 +74,7 @@ table
 }
 
 
-#data
+#data, #suppliersTable
 {
     background-color: rgb(204, 191, 191);
 }
@@ -81,12 +82,12 @@ button
 {
     margin: auto auto;
     display:block;
-    padding:10px;
+    padding:15px;
     border:none;
     background-color: brown;
     color:white;
-    border-radius: 15px;
     margin-bottom: 30px;
+    border:none;
    
 }
 
@@ -146,25 +147,11 @@ h2
     width:100%;
     justify-content: space-around;
     background-color: black;
-    margin:0px auto;
-    padding:5px;
-    border-radius: 15px;
-    border:3px solid brown
-}
-#navHeading ul button
-{
-    padding:5px;
-    margin:0px;
-    background-color:black;
-    color:white;
-    border: none;
-}
+    padding:15px;
 
 
-#navHeading button:hover
-{
-    background-color: brown;
 }
+
 
 
 .canvas
@@ -176,7 +163,7 @@ h2
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
     table th, table td{
         font-size:10px;
     }
@@ -189,6 +176,9 @@ h2
 #container{
     width:auto;
 }
+img{
+    width:80%;
+}
 
   }
 
@@ -200,4 +190,20 @@ h2
     margin:0px auto;
     display:block;
     text-align: center;
+}
+
+a{
+    color:white;
+    font-size:18px;
+}
+
+
+#subNav{
+    display:none;
+    background-color: brown;
+    
+}
+
+#suppliersTable{
+    display:none;
 }

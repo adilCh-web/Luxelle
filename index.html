@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risto App</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
     <!--<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
@@ -16,11 +17,16 @@
     <div id="container">
         <nav id="navHeading">
             <ul>
-                <button onclick = "deleteDb();location.reload()">Effacer Data</button>
+                <li><a id ="deleteData">Effacer Data</a></li>
                     
-                <button id="load" onclick="loadData()">Montrer Data</button>
-                <button onclick="loadGraph()">Graphe</button>   
+                <li><a id="loadSubNav" >Montrer Data <i id = "arrow" class="fa fa-caret-down"></i></a></li>
+                <li><a id="loadGraph" >Graphe </a></li>   
             </ul>
+        </nav>
+        <nav id="subNav">
+            <li><a id ="loadDataTransactions" >ventes/Profites</a></li>
+            <li><a id="showDataSuppliers">Fourniseurs</a></li>
+            <li><a href="">Credit</a></li>
         </nav>
 
         <figure>
@@ -48,7 +54,7 @@
                     <button id="s">Enregistrer</button>
             </div>
         </div>
-        <div id="tables">
+        <div id="transActionsTables">
             <table id="header">
                 <tr>
                     <th>Date </th>
@@ -75,7 +81,19 @@
                 </tr>
             </table>
         </div>
-        <div class="canvas">
+        <div >
+            <table id="suppliersTable">
+                <tr>
+                    <th>Date</th>
+                    <th>Nom</th>
+                    <th>Montant</th>
+                </tr>
+            </table>
+        </div>
+        <div id="clientsCreditTable">
+
+        </div>
+        <div id="canvas">
             <canvas id="first" >
             </canvas>
             <canvas id="second" >
@@ -87,6 +105,6 @@
 </div>  
 
 </body>
-<script src="javas.js"></script>
+<script src="javas.js" type = "module"></script>
 
 </html>

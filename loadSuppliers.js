@@ -7,21 +7,31 @@ let db = new Localbase("db");
 
 
 function loadSuppliers(){
+    
     sessionStorage.setItem("submittingDataType","suppliersData")
     //console.log(sessionStorage.getItem("submittingDataType"))
-    form.style.display = "block"
     document.getElementById("transActionsTables").style.display="none"
     document.getElementById("subNav").style.display="none"
     document.getElementById("arrow").className="fa fa-caret-down";
-    suppliersTable.style.display="block"
+    suppliersTable.style.display="block";
+    //deleting all the suppliers data leaving the heading
+    suppliersTable.innerHTML =
+     `<tr>
+        <th>Date</th>
+        <th>Nom</th>
+        <th>Montant</th>
+    </tr>`
+    //hiding the other elements
     graphs.style.display="none"
-    document.querySelectorAll("label")[0].innerHTML = '<input type="string" id="invest" required> Nom'
+    form.style.display = "block"
+    //changing the labels for the inputs
+    document.querySelectorAll("label")[0].innerHTML = '<input type="string" id="invest" required> Nom';
     document.querySelectorAll("label")[1].innerHTML = '<input type="number" id="return" required> Montant';
     form.style.display = "block"
 
     document.getElementById("info").innerHTML = ""
     graphs.style.display="none";
-
+    //displaying all the suppliers data
     if (db.collection("suppliers") !== "undefined"){
         db.collection("suppliers").get().then(
             suppliers =>{

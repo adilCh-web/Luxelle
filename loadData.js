@@ -68,5 +68,4 @@ if (typeof db.collection("invest") !== "undefined")
 
 
 
-
 export  {loadData}

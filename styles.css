@@ -6,6 +6,32 @@
     /*border:1px solid black;*/
 }
 
+/*to fade in the subNav when we display it*/
+@keyframes fade_in_show {
+    0% {
+         opacity: 0;
+         transform: scale(0)
+    }
+
+    100% {
+         opacity: 1;
+         transform: scale(1)
+    }
+}
+
+/*to fade out the subNav before display none (settimeout)*/
+@keyframes fade_out_show {
+    0% {
+         opacity: 1;
+         transform: scale(0)
+    }
+
+    100% {
+         opacity: 0;
+         transform: scale(1)
+    }
+}
+
 .form
 {
     width:80%;
@@ -117,10 +143,10 @@ h2
 .dev
 {
     font-style: italic;
-    font-size:10px;
+    font-size:8px;
     padding-bottom:20px;
     font-weight: 800;
-    margin-top:-7px;
+    margin-top:-3px;
     text-align:center;
 
 }
@@ -204,6 +230,12 @@ a{
     background-color: brown;
     
 }
+
+#subNav li{
+    padding:5px 10px;
+
+}
+
 
 #suppliersTable{
     display:none;

@@ -63,6 +63,8 @@ function submitting()
             updateData()
         }
         else if(type === "suppliersData"){
+
+           
             console.log("clickeeeeeeeeeeeeeeeeeeed")
                 //defining variables
                 let name = document.getElementById("invest").value

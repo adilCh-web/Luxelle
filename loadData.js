@@ -12,13 +12,18 @@ function loadData()
 {
     document.getElementById("arrow").className = "fa fa-caret-down"
     sessionStorage.setItem("submittingDataType","profitData")
+    sessionStorage.setItem("arrowDown","true") 
+
     suppliersTable.style.display = "none";
     form.style.display = "block"
     document.querySelectorAll("label")[0].innerHTML = '<input type="number" id="invest" required> Investissement'
     document.querySelectorAll("label")[1].innerHTML = '<input type="number" id="return" required> Revenue'
 
 
-    document.getElementById("subNav").style.display = "none"
+    document.getElementById("subNav").style.animation = "fade_out_show 2s";
+    setTimeout(() => {
+        document.getElementById("subNav").style.display="none"
+    }, 1000);
 
     document.getElementById("transActionsTables").style.display="block"
     dataTable.innerHTML = ""

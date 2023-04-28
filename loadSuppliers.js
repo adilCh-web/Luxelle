@@ -9,11 +9,18 @@ let db = new Localbase("db");
 function loadSuppliers(){
     
     sessionStorage.setItem("submittingDataType","suppliersData")
+    sessionStorage.setItem("arrowDown","true") 
     //console.log(sessionStorage.getItem("submittingDataType"))
     document.getElementById("transActionsTables").style.display="none"
-    document.getElementById("subNav").style.display="none"
+
+    document.getElementById("subNav").style.animation = "fade_out_show 2s";
+    setTimeout(() => {
+        document.getElementById("subNav").style.display="none"
+    }, 1000);
+
     document.getElementById("arrow").className="fa fa-caret-down";
     suppliersTable.style.display="block";
+
     //deleting all the suppliers data leaving the heading
     suppliersTable.innerHTML =
      `<tr>

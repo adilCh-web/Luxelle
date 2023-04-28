@@ -199,12 +199,15 @@ h2
         display:block;
     }
     
-#container{
-    width:auto;
-}
-img{
-    width:80%;
-}
+    #container{
+        width:auto;
+    }
+    img{
+        width:80%;
+    }
+    a{
+        font-size:12px;
+    }
 
   }
 

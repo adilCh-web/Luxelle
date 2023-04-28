@@ -4,11 +4,10 @@ import showSubNav from "./showSubNav.js";
 import {loadData} from "./loadData.js";
 import deleteDb from "./deleteData.js";
 import loadSuppliers from "./loadSuppliers.js";
-import updateData from "./updateTransactions.js";
 
 //sessionStorage.setItem("submittingDataType","profitData")
 
-let db = new Localbase("db");
+sessionStorage.setItem("arrowDown","true")
 let submit = document.getElementById("s")
 
 sessionStorage.setItem("submittingDataType","profitData")

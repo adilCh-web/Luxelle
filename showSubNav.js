@@ -1,20 +1,21 @@
 
-let arrowDown = true
+
 
 function showSubNav(){
+    let arrowDown =  sessionStorage.getItem("arrowDown") 
 
-    if(arrowDown === true){
+    if(arrowDown === "true"){
         document.getElementById("subNav").style.animation = "fade_in_show 2s";
         document.getElementById("subNav").style.display="block";
         document.getElementById("arrow").className="fa fa-caret-up";
-        arrowDown = false}
+        sessionStorage.setItem("arrowDown","false")}
     else{
         document.getElementById("arrow").className="fa fa-caret-down";
         document.getElementById("subNav").style.animation = "fade_out_show 2s";
         setTimeout(() => {
             document.getElementById("subNav").style.display="none"
-        }, 2000);
-        arrowDown = true
+        }, 1000);
+        sessionStorage.setItem("arrowDown","true")
         
         //document.getElementById("subNav").style.display="none";
 

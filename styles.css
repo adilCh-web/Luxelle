@@ -194,7 +194,8 @@ img{
 
 a{
     color:white;
-    font-size:18px;
+    text-decoration: none;
+    
 }
 
 
@@ -206,4 +207,9 @@ a{
 
 #suppliersTable{
     display:none;
+}
+
+li{
+    list-style-type: none;
+    padding-left: 10px;
 }

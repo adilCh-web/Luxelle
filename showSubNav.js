@@ -10,10 +10,16 @@ function showSubNav(){
         arrowDown = false}
     else{
         document.getElementById("arrow").className="fa fa-caret-down";
+        document.getElementById("subNav").style.animation = "fade_out_show 2s";
+        setTimeout(() => {
+            document.getElementById("subNav").style.display="none"
+        }, 2000);
         arrowDown = true
-        console.log("fadeOut")
+        
+        //document.getElementById("subNav").style.display="none";
+
     }
-       
+       console.log(arrowDown)
     }
 
 

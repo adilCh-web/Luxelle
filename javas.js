@@ -4,6 +4,7 @@ import showSubNav from "./showSubNav.js";
 import {loadData} from "./loadData.js";
 import deleteDb from "./deleteData.js";
 import loadSuppliers from "./loadSuppliers.js";
+import loadCredits from "./loadCredits.js";
 
 //sessionStorage.setItem("submittingDataType","profitData")
 
@@ -12,12 +13,20 @@ let submit = document.getElementById("s")
 
 sessionStorage.setItem("submittingDataType","profitData")
 
+//let db = new Localbase("db");
+let emptyarray = []
+if(localStorage.length === 0){
+    localStorage.setItem("transactions",JSON.stringify(emptyarray))
+    localStorage.setItem("credits",JSON.stringify(emptyarray))
+    localStorage.setItem("suppliers",JSON.stringify(emptyarray))
+    console.log("new Started")
+}
+
+
+
+
 loadData()
 
-
-let dataTable = document.getElementById("data")
-let suppliersTable = document.getElementById("suppliersTable")
-let insightTable = document.getElementById("insight")
 submit.addEventListener("click",submitting)
 
 
@@ -34,3 +43,4 @@ document.getElementById("deleteData").addEventListener("click",deleteDb)
 
 document.getElementById("showDataSuppliers").addEventListener("click",loadSuppliers)
 
+document.getElementById("showDataCredit").addEventListener("click",loadCredits)

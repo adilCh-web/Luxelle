@@ -1,8 +1,6 @@
 let suppliersTable = document.getElementById("suppliersTable");
 let form = document.querySelector(".form")
 let graphs = document.getElementById("canvas")
-let db = new Localbase("db");
-
 
 
 
@@ -36,29 +34,23 @@ function loadSuppliers(){
     document.querySelectorAll("label")[1].innerHTML = '<input type="number" id="return" required> Montant';
     form.style.display = "block"
 
-    document.getElementById("info").innerHTML = ""
+    document.getElementById("info").style.visibility = "hidden"
     graphs.style.display="none";
     //displaying all the suppliers data
-    if (db.collection("suppliers") !== "undefined"){
-        db.collection("suppliers").get().then(
-            suppliers =>{
-                for(let i=0;i<suppliers.length;i++){
-                    let myArray = [suppliers[i].time,suppliers[i].name,suppliers[i].amount];
-                    let row =document.createElement("tr")
-                    for(let j=0;j<myArray.length;j++){
-                        let cell = document.createElement("td")
-                        cell.textContent = myArray[j]
-                        row.appendChild(cell)
+    let suppliers = JSON.parse(localStorage.getItem("suppliers"))
+ 
+        for(let i=0;i<suppliers.length;i++){
+            let myArray = [suppliers[i].time,suppliers[i].name,suppliers[i].amount];
+            let row =document.createElement("tr")
+            for(let j=0;j<myArray.length;j++){
+                let cell = document.createElement("td")
+                cell.textContent = myArray[j]
+                row.appendChild(cell)
 
-                    }
-                    suppliersTable.appendChild(row)
-                }
             }
-
-
-        )
-    }
-
+            suppliersTable.appendChild(row)
+        }
+            
 }
 
 

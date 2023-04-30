@@ -53,13 +53,14 @@ img
     width:80%;
     min-width:300px;
     margin:0px auto;
-    padding:5px;
-    background-color: beige;
+    background-color: rgb(238, 228, 228);
     min-height:100vh;
-}
+    position: relative;
+    padding-bottom:50px;}
 body
 {
     background-color: brown;
+
 }
 .form div
 {
@@ -81,14 +82,15 @@ table th, table td
 {
     padding:5px 0px;
     border-bottom: 1px solid ;
-    width:150px; /*giving it a bigger size to make all the cells igual (insight and data table) */
-    text-align:center
+    width:250px; /*giving it a bigger size to make all the cells igual (insight and data table) */
+    text-align:center;
 }
 table
 {
     margin: auto auto;
     border:2px solid brown;
     width:80%;
+    max-width:750px;
 
 }
 
@@ -176,6 +178,7 @@ h2
     padding:15px;
 
 
+
 }
 
 
@@ -189,9 +192,98 @@ h2
 }
 
 
+#info{
+    color:red;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 10px;
+    margin:0px auto;
+    display:block;
+    text-align: center;
+    visibility: hidden;
+}
+
+a{
+    color:white;
+    text-decoration: none;
+    
+}
+
+
+#subNav{
+    display:none;
+    background-color: brown;
+    position:absolute;
+    top:50px;
+    min-width:300px;
+    width:100%;
+    left:0;  
+}
+
+#creditsTable{
+    
+    border:2px solid black;
+    display:none;
+}
+#subNav li{
+    padding:5px 10px;
+
+}
+
+
+#suppliersTable{
+    display:none;
+}
+
+li{
+    list-style-type: none;
+}
+
+.flexColumn{
+    display:flex;
+    flex-direction: column;
+    border:5px solid black;
+}
+
+.unset{
+    margin:unset;
+    padding:unset;
+    width:100%;
+    margin:auto auto;
+    height:20px;;
+    display:block;
+    margin:0px auto
+}
+
+
+
+#creditsTable td{
+    border-bottom: none ;
+}
+th{
+        background-color: black;
+        color:white;
+        text-align: left;
+        padding:5px;
+    
+}
+
+.flexColumn button, .flexColumn input{
+    max-width:200px;
+    width:80%;
+    margin:auto auto;
+
+}
+
+.flexColumn td{
+    width:375px; /*making them bigger to be able to cover all the row ps: max of the table is 750px */
+    margin:0px auto;
+}
+
 @media only screen and (max-width: 600px) {
     table th, table td{
-        font-size:10px;
+        font-size:12px;
+        font-weight:bold;
     }
     .canvas{
         width:300px;
@@ -208,43 +300,14 @@ h2
     a{
         font-size:12px;
     }
+    .unset{
+        height:15px;
+    }
+
+    .flexColumn button, .flexColumn input{
+        min-width:50px;
+        width:40%;
+        margin:auto auto; 
+    }
 
   }
-
-#info{
-    color:red;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 10px;
-    margin:0px auto;
-    display:block;
-    text-align: center;
-}
-
-a{
-    color:white;
-    text-decoration: none;
-    
-}
-
-
-#subNav{
-    display:none;
-    background-color: brown;
-    
-}
-
-#subNav li{
-    padding:5px 10px;
-
-}
-
-
-#suppliersTable{
-    display:none;
-}
-
-li{
-    list-style-type: none;
-    padding-left: 10px;
-}

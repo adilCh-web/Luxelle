@@ -4,6 +4,7 @@ let form = document.querySelector(".form")
 let dataTable = document.getElementById("data")
 let insightTable = document.getElementById("insight")
 let suppliersTable = document.getElementById("suppliersTable")
+let creditsTable = document.getElementById("creditsTable")
 let graphs = document.getElementById("canvas")
 let db = new Localbase("db");
 
@@ -15,6 +16,7 @@ function loadData()
     sessionStorage.setItem("arrowDown","true") 
 
     suppliersTable.style.display = "none";
+    creditsTable.style.display = "none";
     form.style.display = "block"
     document.querySelectorAll("label")[0].innerHTML = '<input type="number" id="invest" required> Investissement'
     document.querySelectorAll("label")[1].innerHTML = '<input type="number" id="return" required> Revenue'
@@ -38,30 +40,28 @@ function loadData()
 if (typeof db.collection("invest") !== "undefined")
 {
 
+    let transactions = JSON.parse(localStorage.getItem("transactions"))
 
-    db.collection("invest").get().then(
-        invest=>
+    for(let i=0;i<transactions.length;i++)
         {
-            for(let i=0;i<invest.length;i++)
-                {
-                    console.log("hello ",invest[i])
-     
-                    let letmyArray = [invest[i].time,
-                    invest[i].invest,
-                    invest[i].return,
-                    invest[i].profitPercentage+"%"]
-                    var row= document.createElement("tr")
-                    dataTable.appendChild(row)
-                    for(let i =0;i<4;i++)
-                    {
-                        let td=document.createElement("td")
-                        td.textContent=letmyArray[i]
-                        td.className = "class_"+i
-                        row.appendChild(td)
-                    }
+            console.log("hello ",transactions[i])
 
-                } 
-        })
+            let letmyArray = [transactions[i].time,
+            transactions[i].invest,
+            transactions[i].return,
+            transactions[i].profitPercentage+"%"]
+            var row= document.createElement("tr")
+            dataTable.appendChild(row)
+            for(let i =0;i<4;i++)
+            {
+                let td=document.createElement("td")
+                td.textContent=letmyArray[i]
+                td.className = "class_"+i
+                row.appendChild(td)
+            }
+
+        } 
+
 
     setTimeout(() => {updateData()
         

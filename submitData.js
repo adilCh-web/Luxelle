@@ -1,9 +1,8 @@
 import updateData from "./updateTransactions.js";
 let letmyArray;
 let dataTable = document.getElementById("data")
-let db = new Localbase("db");
 let suppliersTable = document.getElementById("suppliersTable")
-
+let creditsTable = document.getElementById("creditsTable")
 
 
 function submitting()
@@ -48,23 +47,21 @@ function submitting()
                 row.appendChild(td)
 
             }
-
-            //storing an object in our localBase
-            db.collection("invest").add(
+            let transactions = JSON.parse(localStorage.getItem("transactions"))
+            //adding an object to the array transactions
+            transactions.push(                
                 {
-                    time:timing,
-                    invest:invest,
-                    return:returnmoney,
-                    profitPercentage:profitPercentage,
-        
-                }
-            )
+                time:timing,
+                invest:invest,
+                return:returnmoney,
+                profitPercentage:profitPercentage,
+                })
+            //stringify it again and store it back to the data base
+            localStorage.setItem("transactions",JSON.stringify(transactions))
 
             updateData()
         }
         else if(type === "suppliersData"){
-
-           
             console.log("clickeeeeeeeeeeeeeeeeeeed")
                 //defining variables
                 let name = document.getElementById("invest").value
@@ -90,9 +87,10 @@ function submitting()
                     row.appendChild(td)
 
                 }
+                let suppliersData = JSON.parse(localStorage.getItem("suppliers"))
+                //adding the submitted object to the array suppliersData
 
-                //storing an object in our localBase
-                db.collection("suppliers").add(
+                suppliersData.push(
                     {
                         time:timing,
                         name:name,
@@ -100,26 +98,69 @@ function submitting()
             
                     }
                 )
+            //stringify it and storing it in the database (localstorage)
+            localStorage.setItem("suppliers",JSON.stringify(suppliersData))
+        } 
+        else if(type === "creditsData"){
+            let name = document.getElementById("invest").value
+            let amount = document.getElementById("return").value;
+            let myArray = [timing,name,amount]
+            let mainRow = document.createElement("tr")
+            let rowData = document.createElement("tr")
+            let rowSubmit = document.createElement("tr") 
+            //cellSubmit.style.display = "none"
+            for(let i=0;i<myArray.length;i++){
+                let cell = document.createElement("td")
+                cell.textContent = myArray[i]
+                rowData.appendChild(cell)
+            }
+            let payInput= document.createElement("input")
+            let cell_1 = document.createElement("td") 
+            cell_1.appendChild(payInput)
+            rowSubmit.appendChild(cell_1)
 
-                
+            mainRow.className = "flexColumn"
+            let btn = document.createElement("button")
+            let cell_2 = document.createElement("td") 
+            cell_2.appendChild(btn)
+            btn.textContent = "pay"
+            rowSubmit.appendChild(cell_2)
+
+            btn.className = "unset"
+            payInput.className = "unset"
+            mainRow.appendChild(rowData)
+            mainRow.appendChild(rowSubmit)
+            creditsTable.appendChild(mainRow)
+    
+            let creditsData = JSON.parse(localStorage.getItem("credits"))
+            //storing the submitted object in our array creditsData
+            creditsData.push(
+                {
+                    time:timing,
+                    name:name,
+                    amount:amount,
+        
+                }
+            )
+            //stringify the array and store it in the localstorage
+            localStorage.setItem("credits",JSON.stringify(creditsData))
+
         }
-
-    }
+    }  
 
 
     else{
         console.log("info message")
-        document.getElementById("info").innerHTML = "Some of the Data are messing !!"
+        document.getElementById("info").style.visibility = "visible"
         setTimeout(() => {
-            document.getElementById("info").innerHTML="";
+            document.getElementById("info").style.visibility ="hidden";
 
         }, 1000);
     }
         
     //deleting the values after displaying/storing them or after a wrong input
-    document.getElementById("invest").value = ""
-    document.getElementById("return").value = ""
-
+    document.getElementById("invest").value = "";
+    document.getElementById("return").value = "";
 }
 
 

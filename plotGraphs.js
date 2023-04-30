@@ -1,10 +1,14 @@
 let form = document.querySelector(".form")
+let creditsTable = document.getElementById("creditsTable")
+let suppliersTable = document.getElementById("suppliersTable")
+let tableData = document.getElementById("transActionsTables")
 let graphs = document.getElementById("canvas")
 let db = new Localbase("db");
 
 function loadGraph()
  {
-    form.style.display = "none"
+    form.style.display = "none";
+    creditsTable.style.display = "none"
     //in case the arrow is up
     document.getElementById("arrow").className="fa fa-caret-down";
     console.log("clicked")
@@ -18,8 +22,8 @@ function loadGraph()
     var labels=[]
     var dataInvest = []
     var dataProfit = []
-    document.getElementById("transActionsTables").style.display="none"
-    document.getElementById("suppliersTable").style.display="none"
+    tableData.style.display="none"
+    suppliersTable.style.display="none"
     graphs.style.display="block"
 
     db.collection("invest").get().then(

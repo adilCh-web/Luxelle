@@ -1,10 +1,8 @@
-let db = new Localbase("db");
+
 
 function deleteDb()
 {
-    db.collection('invest').delete();
-    db.collection('suppliers').delete();
-    location.reload();
+    localStorage.clear()
 }
 
 export default  deleteDb

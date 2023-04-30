@@ -26,7 +26,7 @@
         <nav id="subNav">
             <li><a id ="loadDataTransactions" >ventes/Profites</a></li>
             <li><a id="showDataSuppliers">Fourniseurs</a></li>
-            <li><a href="">Credit</a></li>
+            <li><a id = "showDataCredit">Credit</a></li>
         </nav>
 
         <figure>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <hr>
-            <label id="info"></label>
+            <label id="info">Some of the Data are messing !!</label>
             <div>
                     <button id="s">Enregistrer</button>
             </div>
@@ -81,18 +81,21 @@
                 </tr>
             </table>
         </div>
-        <div >
-            <table id="suppliersTable">
-                <tr>
-                    <th>Date</th>
-                    <th>Nom</th>
-                    <th>Montant</th>
-                </tr>
-            </table>
-        </div>
-        <div id="clientsCreditTable">
+        <table id="suppliersTable">
+            <tr>
+                <th>Date</th>
+                <th>Nom</th>
+                <th>Montant</th>
+            </tr>
+        </table>
 
-        </div>
+        <table id="creditsTable">
+            <tr>
+                <th>Date</th>
+                <th>Nom</th>
+                <th>Montant</th>
+            </tr>
+        </table>
         <div id="canvas">
             <canvas id="first" >
             </canvas>

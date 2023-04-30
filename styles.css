@@ -119,9 +119,9 @@ button
    
 }
 
-#s:active
+button:active
 {
-    background-color: black;
+    background-color: rgb(170, 102, 102);
 }
 
 hr

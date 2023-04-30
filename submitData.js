@@ -149,17 +149,19 @@ function submitting()
             )
             //stringify the array and store it in the localstorage
             localStorage.setItem("credits",JSON.stringify(creditsData))
+           
             rowData.addEventListener("click",()=>{
                 if(rowSubmit.style.display === "none"){
                     rowSubmit.style.display="block";
+                    rowSubmit.style.animation = "fade_in_show 1s"
                 }else{
-                    rowSubmit.style.display="none";
+                    rowSubmit.style.animation = "fade_out_show 2s"
+                    setTimeout(() => {
+                        rowSubmit.style.display="none"
+                    }, 1000);
                 }
             })
-            btn.addEventListener("click",()=>{
-                
-            })
-            
+
         }
 
     }  

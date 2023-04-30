@@ -14,11 +14,11 @@ let submit = document.getElementById("s")
 sessionStorage.setItem("submittingDataType","profitData")
 
 //let db = new Localbase("db");
-let emptyarray = []
+
 if(localStorage.length === 0){
-    localStorage.setItem("transactions",JSON.stringify(emptyarray))
-    localStorage.setItem("credits",JSON.stringify(emptyarray))
-    localStorage.setItem("suppliers",JSON.stringify(emptyarray))
+    localStorage.setItem("transactions",JSON.stringify([]))
+    localStorage.setItem("credits",JSON.stringify([]))
+    localStorage.setItem("suppliers",JSON.stringify([]))
     console.log("new Started")
 }
 

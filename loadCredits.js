@@ -89,10 +89,14 @@ function loadCredits(){
         rowData.addEventListener("click",()=>{
         console.log(i);
         if(submitRow.style.display == "block"){
-            submitRow.style.display="none"
+    
+            document.querySelectorAll(".submitRow")[i].style.animation = "fade_out_show 2s"
+            setTimeout(() => {
+                document.querySelectorAll(".submitRow")[i].style.display = "none";
+            }, 1000);
         }
         else{
-
+            
             submitRow.style.display="block"
             submitRow.style.animation = "fade_in_show 2s"
         }
@@ -110,7 +114,7 @@ function loadCredits(){
 
                 // inputs value blank again
                 payInput.value= ""
-                document.querySelectorAll(".submitRow")[i].style.animation = "fade_out_show 2s"
+                document.querySelectorAll(".submitRow")[i].style.animation = "fade_out_show 1s"
                 setTimeout(() => {
                     document.querySelectorAll(".submitRow")[i].style.display = "none";
 

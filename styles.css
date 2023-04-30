@@ -88,7 +88,7 @@ table th, table td
 table
 {
     margin: auto auto;
-    border:2px solid brown;
+    border:3px solid black;
     width:80%;
     max-width:750px;
 
@@ -280,6 +280,8 @@ th{
     margin:0px auto;
 }
 
+
+
 @media only screen and (max-width: 600px) {
     table th, table td{
         font-size:12px;
@@ -308,6 +310,10 @@ th{
         min-width:50px;
         width:40%;
         margin:auto auto; 
+    }
+
+    .unset{
+        font-size: 10px;
     }
 
   }

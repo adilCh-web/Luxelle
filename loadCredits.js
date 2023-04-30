@@ -3,7 +3,7 @@ let creditsTable = document.getElementById("creditsTable");
 let dataTable = document.getElementById("transActionsTables");
 let form = document.querySelector(".form")
 let graphs = document.getElementById("canvas")
-let db = new Localbase("db");
+
 
 
 
@@ -65,6 +65,7 @@ function loadCredits(){
         }
         let cellInput = document.createElement("td")
         let payInput = document.createElement("input")
+        payInput.type = "number"
         cellInput.appendChild(payInput)
         cellInput.className = "cellInput"
         let cellBtn = document.createElement("td")
@@ -96,7 +97,6 @@ function loadCredits(){
             submitRow.style.animation = "fade_in_show 2s"
         }
         })
-
         btn.addEventListener("click",()=>{
             let amount = Number(document.querySelectorAll(".amountCredit")[i].textContent);
             let valueToSubstract = payInput.value;
@@ -143,7 +143,12 @@ function loadCredits(){
                 localStorage.setItem("credits",JSON.stringify(credits))
             }
 
+
+
         })
+
+        
+
         
     }
             

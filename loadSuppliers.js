@@ -1,4 +1,6 @@
 let suppliersTable = document.getElementById("suppliersTable");
+let dataTable = document.getElementById("transActionsTables");
+let creditsTable = document.getElementById("creditsTable");
 let form = document.querySelector(".form")
 let graphs = document.getElementById("canvas")
 
@@ -9,7 +11,6 @@ function loadSuppliers(){
     sessionStorage.setItem("submittingDataType","suppliersData")
     sessionStorage.setItem("arrowDown","true") 
     //console.log(sessionStorage.getItem("submittingDataType"))
-    document.getElementById("transActionsTables").style.display="none"
 
     document.getElementById("subNav").style.animation = "fade_out_show 2s";
     setTimeout(() => {
@@ -28,6 +29,8 @@ function loadSuppliers(){
     </tr>`
     //hiding the other elements
     graphs.style.display="none"
+    creditsTable.style.display = "none"
+    dataTable.style.display = "none"
     form.style.display = "block"
     //changing the labels for the inputs
     document.querySelectorAll("label")[0].innerHTML = '<input type="string" id="invest" required> Nom';

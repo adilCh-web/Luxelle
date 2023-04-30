@@ -108,13 +108,18 @@ function submitting()
             let mainRow = document.createElement("tr")
             let rowData = document.createElement("tr")
             let rowSubmit = document.createElement("tr") 
+            rowSubmit.style.display = "none"
             //cellSubmit.style.display = "none"
             for(let i=0;i<myArray.length;i++){
                 let cell = document.createElement("td")
                 cell.textContent = myArray[i]
                 rowData.appendChild(cell)
+                if(i==2){
+                    cell.className = "amountCredit"
+                }
             }
             let payInput= document.createElement("input")
+            payInput.type = "number"
             let cell_1 = document.createElement("td") 
             cell_1.appendChild(payInput)
             rowSubmit.appendChild(cell_1)
@@ -144,8 +149,19 @@ function submitting()
             )
             //stringify the array and store it in the localstorage
             localStorage.setItem("credits",JSON.stringify(creditsData))
-
+            rowData.addEventListener("click",()=>{
+                if(rowSubmit.style.display === "none"){
+                    rowSubmit.style.display="block";
+                }else{
+                    rowSubmit.style.display="none";
+                }
+            })
+            btn.addEventListener("click",()=>{
+                
+            })
+            
         }
+
     }  
 
 

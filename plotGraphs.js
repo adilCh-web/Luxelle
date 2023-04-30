@@ -3,7 +3,6 @@ let creditsTable = document.getElementById("creditsTable")
 let suppliersTable = document.getElementById("suppliersTable")
 let tableData = document.getElementById("transActionsTables")
 let graphs = document.getElementById("canvas")
-let db = new Localbase("db");
 
 function loadGraph()
  {
@@ -26,30 +25,27 @@ function loadGraph()
     suppliersTable.style.display="none"
     graphs.style.display="block"
 
-    db.collection("invest").get().then(
-        invest=>
+    let invest = JSON.parse(localStorage.getItem("transactions"))
+    for(let i=0;i<invest.length;i++)
         {
-            for(let i=0;i<invest.length;i++)
-                {
-                
-                    acumProfit=acumProfit + (Number(invest[i].return) - Number(invest[i].invest))
+        
+            acumProfit=acumProfit + (Number(invest[i].return) - Number(invest[i].invest))
 
-                    acumInvest= acumInvest + Number(invest[i].invest)
-                    acumReturn = acumReturn + Number(invest[i].return)
+            acumInvest= acumInvest + Number(invest[i].invest)
+            acumReturn = acumReturn + Number(invest[i].return)
 
-                    dataInvest.push(Number(invest[i].invest))
-                    dataProfit.push(Number(invest[i].return)-Number(invest[i].invest))
-                    labels.push(invest[i].time)
-                    if(i==(invest.length-1))
-                    {
-                        values.push(acumProfit)
-                        values.push(acumInvest)
-                    }
+            dataInvest.push(Number(invest[i].invest))
+            dataProfit.push(Number(invest[i].return)-Number(invest[i].invest))
+            labels.push(invest[i].time)
+            if(i==(invest.length-1))
+            {
+                values.push(acumProfit)
+                values.push(acumInvest)
+            }
 
-                }
+        }
 
-            } 
-        )
+ 
     console.log(dataInvest)
     console.log([acumProfit, acumReturn, acumInvest])
     const ctx = document.getElementById('first').getContext('2d');
